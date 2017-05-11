@@ -1,0 +1,12 @@
+---
+security:
+  user:
+    name: user
+    password: test
+---
+spring:
+  profiles: dev
+
+---
+spring:
+  profiles: prod
