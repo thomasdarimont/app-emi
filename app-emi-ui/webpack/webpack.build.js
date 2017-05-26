@@ -1,9 +1,9 @@
 const loaders = require("./loaders");
+const webpack = require('webpack');
 const preloaders = require("./preloaders");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractCSS = new ExtractTextPlugin('styles/[name].scss');
 
 module.exports = {
@@ -21,6 +21,9 @@ module.exports = {
     modulesDirectories: ["node_modules"]
   },
   plugins: [
+    new webpack.EnvironmentPlugin([
+      "NODE_ENV"
+    ]),
     new ExtractTextPlugin("styles.css"),
     new webpack.optimize.UglifyJsPlugin(
       {

@@ -3,7 +3,7 @@ export class TweetContentComponent implements ng.IComponentOptions {
     public controller: any = TweetContentController;
     public template: string = `
         <div>
-            <h2>Feed</h2>
+            <h2>Feed cedric dev</h2>
             <p>These are the most recent tweets</p>
             <div class="dp-tweets">
                 <div class="row dp-tweet" ng-repeat="tweet in $ctrl.model.tweets">

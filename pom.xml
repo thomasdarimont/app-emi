@@ -8,10 +8,9 @@
     <artifactId>app-emi</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
+
     <modules>
         <module>app-emi-ui</module>
         <module>app-emi-service</module>
     </modules>
-
-
 </project>

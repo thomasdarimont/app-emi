@@ -1,6 +1,7 @@
 var preloaders = require("./preloaders");
 var loaders = require("./loaders");
 var webpack = require('webpack');
+
 module.exports = {
   entry: ['./src/main/frontend/index.ts'],
   output: {
@@ -16,6 +17,9 @@ module.exports = {
   },
   devtool: "source-map-inline",
   plugins: [
+    new webpack.EnvironmentPlugin([
+      "NODE_ENV"
+    ]),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',

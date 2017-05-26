@@ -1,7 +1,9 @@
-var loaders = require("./loaders");
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var webpack = require('webpack');
+const loaders = require("./loaders");
+const webpack = require('webpack');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
     entry: ['./src/main/frontend/index.ts'],
     output: {
@@ -17,6 +19,10 @@ module.exports = {
     },
     devtool: "inline-eval-cheap-source-map",
     plugins: [
+        new webpack.EnvironmentPlugin([
+          "NODE_ENV"
+        ]),
+        new ExtractTextPlugin("styles.css"),
         new HtmlWebpackPlugin({
             template: './src/main/frontend/index.html',
             inject: 'body',
@@ -36,7 +42,8 @@ module.exports = {
 
         ui: false,
         online: false,
-        notify: false
+        notify: false,
+        open: false
       }),
         new webpack.ProvidePlugin({
             $: 'jquery',

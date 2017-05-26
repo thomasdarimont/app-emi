@@ -65,10 +65,25 @@
         <resources>
             <resource>
                 <directory>${project.basedir}/target/dist</directory><!-- from -->
-                <targetPath>${project.build.directory}/classes/META-INF/resources/webjars/${project.artifactId}/${project.version}</targetPath><!-- to -->
+                <targetPath>
+                    ${project.build.directory}/classes/META-INF/resources/webjars/${project.artifactId}/${project.version}
+                </targetPath><!-- to -->
                 <includes><!-- what -->
                     <include>**/*.*</include>
                 </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory><!-- from -->
+                <includes><!-- what -->
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>version.properties</include>
+                </includes>
+                <filtering>true</filtering>
             </resource>
         </resources>
     </build>
